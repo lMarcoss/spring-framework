@@ -26,7 +26,7 @@ public class ExampleController {
 	// FORMA 2
 
 	// @RequestMapping(value = "/exampleMAV", method = RequestMethod.GET )
-	@GetMapping("/exampleMAV ")
+	@GetMapping("/exampleMAV")
 	public ModelAndView exampleMAV() {
 		return new ModelAndView(EXAMPLE_VIEW);
 	}
