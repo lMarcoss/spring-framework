@@ -1,6 +1,7 @@
 package com.leo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +20,8 @@ public class ExampleController {
 	// @RequestMapping(value = "/exampleString", method = RequestMethod.GET) --
 	// sustituido por la linea que sigue
 	@GetMapping("/exampleString")
-	public String exampleString() {
+	public String exampleString(Model model) {
+		model.addAttribute("name", "Leo");
 		return EXAMPLE_VIEW;
 	}
 
@@ -28,6 +30,8 @@ public class ExampleController {
 	// @RequestMapping(value = "/exampleMAV", method = RequestMethod.GET )
 	@GetMapping("/exampleMAV")
 	public ModelAndView exampleMAV() {
-		return new ModelAndView(EXAMPLE_VIEW);
+		ModelAndView mav = new ModelAndView(EXAMPLE_VIEW);
+		mav.addObject("name", "Marcos");
+		return mav;
 	}
 }
