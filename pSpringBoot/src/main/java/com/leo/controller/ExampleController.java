@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.leo.model.Person;
+
 @Controller
 @RequestMapping("/example")
 public class ExampleController {
@@ -21,7 +23,7 @@ public class ExampleController {
 	// sustituido por la linea que sigue
 	@GetMapping("/exampleString")
 	public String exampleString(Model model) {
-		model.addAttribute("name", "Leo");
+		model.addAttribute("person", new Person("Leo", 23));
 		return EXAMPLE_VIEW;
 	}
 
@@ -31,7 +33,7 @@ public class ExampleController {
 	@GetMapping("/exampleMAV")
 	public ModelAndView exampleMAV() {
 		ModelAndView mav = new ModelAndView(EXAMPLE_VIEW);
-		mav.addObject("name", "Marcos");
+		mav.addObject("person", new Person("Marcos", 23));
 		return mav;
 	}
 }
