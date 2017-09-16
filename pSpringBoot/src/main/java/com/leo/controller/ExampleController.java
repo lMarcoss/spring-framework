@@ -1,5 +1,8 @@
 package com.leo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,5 +38,19 @@ public class ExampleController {
 		ModelAndView mav = new ModelAndView(EXAMPLE_VIEW);
 		mav.addObject("person", new Person("Marcos", 23));
 		return mav;
+	}
+
+	@GetMapping("/examplePeople")
+	public String examplePeople(Model model) {
+		model.addAttribute("people", getPeople());
+		return EXAMPLE_VIEW;
+	}
+
+	private List<Person> getPeople() {
+		List<Person> people = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+			people.add(new Person("person_" + i, i + 20));
+		}
+		return people;
 	}
 }
