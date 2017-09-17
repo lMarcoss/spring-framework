@@ -20,4 +20,11 @@ public class Example4Controller {
 	public String p500() {
 		return P500;
 	}
+
+	// Metodo para provocar el error 500
+	@GetMapping("/error")
+	public String error() {
+		int i = 6 / 0;
+		return "prueba" + i;
+	}
 }
