@@ -3,6 +3,8 @@ package com.leo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,11 @@ import com.leo.model.Person;
 public class ExampleController {
 
 	public static final String EXAMPLE_VIEW = "example";
+
+	@Autowired
+	@Qualifier("exampleComponent")
+	private ExampleComponent exComponent;
+
 	/*
 	 * Formas de retornar una plantilla
 	 */
@@ -26,6 +33,7 @@ public class ExampleController {
 	// sustituido por la linea que sigue
 	@GetMapping("/exampleString")
 	public String exampleString(Model model) {
+		exComponent.sayHello();
 		model.addAttribute("person", new Person("Leo", 23));
 		return EXAMPLE_VIEW;
 	}
