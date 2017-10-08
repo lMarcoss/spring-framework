@@ -1,9 +1,12 @@
 package com.leo.controller;
 
+import javax.validation.Valid;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,11 +49,19 @@ public class Example3Controller {
 
 	// regresa la página con el objeto persona
 	@PostMapping("/addPerson")
-	public ModelAndView addPerson(@ModelAttribute("person") Person person) {
-		LOGGER.info("METHOD: 'addPerson' -- PARAMS: '" + person + "'");
-		ModelAndView modelAndView = new ModelAndView(RESULT_VIEW);
-		modelAndView.addObject("person", person);
-		LOGGER.info("TEMPLATE: '" + RESULT_VIEW + "' --DATA: " + person + "'");
+	public ModelAndView addPerson(@Valid @ModelAttribute("person") Person person, BindingResult bindingResult) {
+		// con @Valid indicamos que debe validar antes
+		// BindingResult -- lo usa spring para verificar los campos y guarda los
+		// errores en este parámetro
+		ModelAndView modelAndView = new ModelAndView();
+		if (bindingResult.hasErrors()) {
+			// hay errores
+			modelAndView.setViewName(FORM_VIEW);
+		} else {
+			// no hay errores
+			modelAndView.setViewName(RESULT_VIEW);
+			modelAndView.addObject("person", person);
+		}
 		return modelAndView;
 	}
 }

@@ -1,8 +1,18 @@
 package com.leo.model;
 
-public class Person {
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class Person {
+	@NotNull
+	@Size(min = 3, max = 10)
 	private String name;
+
+	@NotNull
+	@Min(18)
+	@Max(200)
 	private int age;
 
 	/**
