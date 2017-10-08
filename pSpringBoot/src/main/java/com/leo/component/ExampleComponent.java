@@ -1,4 +1,4 @@
-package com.leo.controller;
+package com.leo.component;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

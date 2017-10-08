@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.leo.component.ExampleComponent;
 import com.leo.model.Person;
 
 @Controller
@@ -21,8 +22,13 @@ public class ExampleController {
 
 	@Autowired
 	@Qualifier("exampleComponent")
-	private ExampleComponent exComponent;
+	private ExampleComponent exampleComponent;
 
+	
+//	public ExampleController(ExampleComponent exampleComponent) {
+//		// TODO Auto-generated constructor stub
+//		this.exampleComponent = exampleComponent;
+//	}
 	/*
 	 * Formas de retornar una plantilla
 	 */
@@ -33,8 +39,8 @@ public class ExampleController {
 	// sustituido por la linea que sigue
 	@GetMapping("/exampleString")
 	public String exampleString(Model model) {
-		exComponent.sayHello();
-		model.addAttribute("person", new Person("Leo", 23));
+		exampleComponent.sayHello();
+		model.addAttribute("people", new Person("Leo", 23));
 		return EXAMPLE_VIEW;
 	}
 
