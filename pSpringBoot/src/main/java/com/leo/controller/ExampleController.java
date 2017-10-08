@@ -1,8 +1,5 @@
 package com.leo.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -13,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.leo.component.ExampleComponent;
 import com.leo.model.Person;
+import com.leo.service.ExampleService;
 
 @Controller
 @RequestMapping("/example")
@@ -24,11 +22,9 @@ public class ExampleController {
 	@Qualifier("exampleComponent")
 	private ExampleComponent exampleComponent;
 
-	
-//	public ExampleController(ExampleComponent exampleComponent) {
-//		// TODO Auto-generated constructor stub
-//		this.exampleComponent = exampleComponent;
-//	}
+	@Autowired
+	@Qualifier("exampleService")
+	private ExampleService exampleService;
 	/*
 	 * Formas de retornar una plantilla
 	 */
@@ -56,15 +52,8 @@ public class ExampleController {
 
 	@GetMapping("/examplePeople")
 	public String examplePeople(Model model) {
-		model.addAttribute("people", getPeople());
+		model.addAttribute("people", exampleService.getListPeople());
 		return EXAMPLE_VIEW;
 	}
 
-	private List<Person> getPeople() {
-		List<Person> people = new ArrayList<>();
-		for (int i = 0; i < 10; i++) {
-			people.add(new Person("person_" + i, i + 20));
-		}
-		return people;
-	}
 }
