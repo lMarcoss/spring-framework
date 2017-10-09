@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.leo.component.ExampleComponent;
 import com.leo.model.Person;
-import com.leo.service.ExampleService;
+import com.leo.service.example.service.ExampleService;
 
 @Controller
 @RequestMapping("/example")

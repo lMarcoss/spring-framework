@@ -1,4 +1,4 @@
-package com.leo.service.impl;
+package com.leo.service.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 import com.leo.model.Person;
-import com.leo.service.ExampleService;
 
 @Service("exampleService")
 public class ExampleServiceImpl implements ExampleService {

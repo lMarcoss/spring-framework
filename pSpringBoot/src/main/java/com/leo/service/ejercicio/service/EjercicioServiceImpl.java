@@ -1,10 +1,8 @@
-package com.leo.service.impl;
+package com.leo.service.ejercicio.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-
-import com.leo.service.EjercicioService;
 
 @Service("ejercicioService")
 public class EjercicioServiceImpl implements EjercicioService {

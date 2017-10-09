@@ -1,4 +1,4 @@
-package com.leo.service;
+package com.leo.service.example.service;
 
 import java.util.List;
 
