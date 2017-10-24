@@ -10,6 +10,8 @@ import com.leo.entity.Course;
 
 @Repository("courseJpaRepository")
 public interface CourseJpaRepository extends JpaRepository<Course, Serializable> {
+	public Course findById(int id);
+
 	public Course findByPrice(int price);
 
 	public Course findByPriceAndName(int price, String name);

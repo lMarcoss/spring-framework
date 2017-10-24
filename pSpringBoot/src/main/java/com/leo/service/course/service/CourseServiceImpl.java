@@ -17,12 +17,17 @@ public class CourseServiceImpl implements CourseService {
 	private CourseJpaRepository courseJpaRepository;
 
 	@Override
+	public Course addCourse(Course course) {
+		return courseJpaRepository.save(course);
+	}
+
+	@Override
 	public List<Course> listAllCourse() {
 		return courseJpaRepository.findAll();
 	}
 
 	@Override
-	public Course addCourse(Course course) {
+	public Course updateCourse(Course course) {
 		return courseJpaRepository.save(course);
 	}
 
@@ -33,8 +38,7 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public Course updateCourse(Course course) {
-		return courseJpaRepository.save(course);
+	public Course findCourse(int id) {
+		return courseJpaRepository.findById(id);
 	}
-
 }
