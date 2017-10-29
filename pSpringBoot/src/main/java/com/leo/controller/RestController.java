@@ -14,7 +14,7 @@ public class RestController {
 	// Regresamos un dato de tipo JSON
 	@GetMapping("/checkRest")
 	public ResponseEntity<Contact> checkRest() {
-		Contact contact = new Contact(1, "Sara", "Te amo", "487923894729", "Oaxaca");
+		Contact contact = new Contact(1, "Json", "Json", "487923894729", "JSON");
 		// return new ResponseEntity<String>("OK!", HttpStatus.OK); --> devuelve el string "OK!"
 		// devuelve el objeto Contact
 		return new ResponseEntity<Contact>(contact, HttpStatus.OK); 

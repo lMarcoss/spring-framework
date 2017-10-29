@@ -21,7 +21,6 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	@Qualifier("logJpaRepository")
 	private LogJpaRepository logJpaRepository;
-
 	private static final Log LOG = LogFactory.getLog(RequestTimeInterceptor.class);
 
 	// antes de entrar al método de la petición se ejecuta este método
@@ -29,7 +28,6 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		request.setAttribute("startTime", System.currentTimeMillis());
-		LOG.info("parametros: " + request.getAttributeNames().toString());
 		return true;
 	}
 
@@ -37,7 +35,6 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-
 		String username = "";
 		String url = request.getRequestURL().toString();
 		long startTime = (long) request.getAttribute("startTime");
@@ -53,7 +50,6 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 			LOG.error("\nError -> \nMessage: " + e.getMessage() + "\nCause: " + e.getCause());
 		}
 
-		LOG.info("--- URL to: " + request.getRequestURL().toString() + "--- in: "
-				+ (System.currentTimeMillis() - startTime) + " ms");
+		LOG.info("--- URL to: " + request.getRequestURL().toString() + "--- in: " + (System.currentTimeMillis() - startTime) + " ms");
 	}
 }
