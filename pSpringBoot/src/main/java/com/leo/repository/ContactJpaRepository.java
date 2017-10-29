@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.leo.entity.Contact;
 
-@Repository("contactRepository")
-public interface ContactRepository extends JpaRepository<Contact, Serializable> {
+@Repository("contactJpaRepository")
+public interface ContactJpaRepository extends JpaRepository<Contact, Serializable> {
+	public Contact findById(int id);
 
 }
