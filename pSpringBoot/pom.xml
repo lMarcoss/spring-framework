@@ -55,12 +55,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<!-- hot swapping, disable cache for template, enable live reload -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>
+		<!-- hot swapping, disable cache for template, enable live reload- reiniciado automático -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-devtools</artifactId> -->
+		<!-- <optional>true</optional> -->
+		<!-- </dependency> -->
 	</dependencies>
 
 	<build>
@@ -90,6 +90,18 @@
 						<groupId>com.querydsl</groupId>
 						<artifactId>querydsl-apt</artifactId>
 						<version>${querydsl.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!-- Plugin para actualizar cambios en el proyecto -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.6.RELEASE</version>
 					</dependency>
 				</dependencies>
 			</plugin>

@@ -1,10 +1,6 @@
 package com.leo.component;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import java.util.Date;
-import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +16,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.leo.repository.LogJpaRepository;
 
-@Component("requestTimeInterceptor") // por cada petición que se haga entra en
-										// esta clase
+@Component("requestTimeInterceptor") // por cada petición que se haga entra en esta clase
 public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	@Qualifier("logJpaRepository")
