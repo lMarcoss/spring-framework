@@ -6,6 +6,7 @@ declare var $;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
 
@@ -929,7 +930,10 @@ export class HomeComponent implements OnInit {
       ]
     ];
     $(function () {
-      $('#dt').DataTable({
+      $('#table_data').DataTable({
+        scrollY: '660px',
+        scrollCollapse: true,
+        paging: true,
         data: data
       });
     });

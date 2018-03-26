@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // rutas
-import {APP_ROUTING} from "./app.routes";
+import {APP_ROUTING} from './app.routes';
 
 //servicios
 

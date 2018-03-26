@@ -1,24 +1,72 @@
-<h1>Héroes <small>Marvel y DC</small></h1>
+
+<div class="row justify-content-md-center">
+  <div class="col-10">
+    <h2>Personas</h2>
+  </div>
+  <div class="col-1">
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" href="#modalAgregarPersona">Agregar</button>
+  </div>
+  <div class="col-1"></div>
+</div>
+
 <hr>
 
-<div class="card-columns">
+<div class="container_tabla">
+  <table id="table_data">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>nombre</th>
+      <th>nombre</th>
+      <th>nombre</th>
+      <th>nombre</th>
+      <th>nombre</th>
+      <th>Editar</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
 
-  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
-    <div class="card-block">
-      <h4 class="card-title">{{ heroe.nombre }}</h4>
-      <p class="card-text">{{ heroe.bio }}</p>
-      <p class="card-text"><small class="text-muted">{{ heroe.aparicion}}</small></p>
-      <button (click)="verHeroe(i)"
-              class="btn btn-outline-primary btn-block"
-              type="button" name="button">
-        Ver más...
-      </button>
-      <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ver más link...</a>
+
+<!-- Modal agregar persona -->
+<!--<div class="modal fade" id="modalAgregarPersona" tabindex="-1" role="dialog" aria-labelledby="modalAgregarPersona" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar persona</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success">Guardar</button>
+      </div>
     </div>
   </div>
+</div>-->
 
-
-
-
+<div class="modal fade" id="modalAgregarPersona">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar persona</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success">Guardar</button>
+      </div>
+    </div>
+  </div>
 </div>

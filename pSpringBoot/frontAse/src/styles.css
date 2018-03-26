@@ -12,3 +12,19 @@
 }
 */
 
+body, html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.main-container{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+}
+.encabezado-tabla{
+  width: 100%;
+  background-color: #fff;
+  height: 50px;
+}
